@@ -96,6 +96,7 @@
         {{ with .description }}{{ . | $.Page.RenderString (dict "display" "block") }}{{ end }}
       </div>
     </div>
+    {{ if not .only_testimonials }}
     <div class="row">
       <div class="col-md-6">
         <div class="block">
@@ -127,6 +128,28 @@
         </div>
       </div>
     </div>
+    {{ else }}
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="testimonial-carousel text-center">
+          <div class="testimonial-slider owl-carousel">
+            {{ range .testimonial_slider }}
+            <div>
+              <i class="fas fa-quote-left"></i>
+              {{ with .content }}{{ . | $.Page.RenderString (dict "display" "block") }}{{ end }}
+              <div class="user">
+                <img src="{{ .image | relURL }}" alt="client">
+                <p><span>{{ .name | markdownify }}</span> {{ .designation | markdownify }}</p>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    {{ end }}
   </div>
 </section>
 {{ end }}
