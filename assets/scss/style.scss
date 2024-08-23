@@ -18,6 +18,23 @@ $font-scale: {{.font_scale | default "1.25"}};
 $font-primary: '{{replace (replaceRE ":[ital,]*[ital@]*[wght@]*[0-9,;]+" "" .font_primary | default "Lato") "+" " "}}', {{.font_primary_type | default "sans-serif"}};
 $font-secondary: '{{replace (replaceRE ":[ital,]*[ital@]*[wght@]*[0-9,;]+" "" .font_secondary | default "Lato") "+" " "}}', {{.font_secondary_type | default "sans-serif"}};
 $font-icon: '{{.font_icon | default "Font Awesome 5 Free"}}';
+
+// Font faces
+@font-face {
+  font-family: '{{ .font_primary }}';
+  font-style: {{ .font_primary_type }};
+  font-weight: 400;
+  font-display: swap;
+  src: url("/font/{{ .font_primary_link }}") format('woff2');
+}
+
+@font-face {
+  font-family: '{{ .font_secondary }}';
+  font-style: {{ .font_secondary_type }};
+  font-weight: 400;
+  font-display: swap;
+  src: url("/font/{{ .font_secondary_link }}") format('woff2');
+}
 {{ end }}
 
 $h1: 40px;
