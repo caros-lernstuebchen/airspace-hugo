@@ -26,6 +26,7 @@
 {{ if .enable }}
 <section class="service-arrow">
   <div class="container-fluid">
+    {{ range .rows }}
     <div class="row">
       {{ range .service_item }}
       <div class="col-md-4 bg-primary bg-{{ .color }} no-float">
@@ -37,6 +38,7 @@
       </div>
       {{ end }}
     </div>
+    {{ end }}
   </div>
 </section>
 {{ end }}
