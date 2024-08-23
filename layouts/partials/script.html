@@ -62,19 +62,3 @@
 </style>
 {{ end }}
 {{ end }}
-
-<!-- font family -->
-{{$pf:= site.Params.variables.font_primary}}
-{{$sf:= site.Params.variables.font_secondary}}
-<script type="application/javascript">
-  WebFont.load({
-    google: {
-      api: 'https://fonts.googleapis.com/css2',
-      families: ['{{$pf | default `Lato:wght@400`}}{{if not $sf}}&display=swap{{end}}'{{with $sf}},'{{. | default `Lato:wght@400`}}&display=swap'{{end}}],
-      version: 2
-    },
-    active: () => {
-      sessionStorage.fontsLoaded = true
-    }
-  });
-</script>
