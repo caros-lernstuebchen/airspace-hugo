@@ -637,6 +637,8 @@ input[type="tel"] {
   @include desktop {
     position: static;
   }
+
+  z-index: 100;
 }
 
 
